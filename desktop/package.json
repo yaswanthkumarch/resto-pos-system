@@ -1,0 +1,75 @@
+{
+  "name": "@resto/desktop",
+  "version": "1.0.0",
+  "description": "Desktop Electron wrapper for restaurant POS system",
+  "main": "dist/main.js",
+  "scripts": {
+    "start": "electron dist/main.js",
+    "dev": "concurrently \"npm run build:watch\" \"npm run electron:dev\"",
+    "build": "tsc && npm run copy-assets",
+    "build:watch": "tsc --watch",
+    "electron:dev": "wait-on dist/main.js && electron dist/main.js --dev",
+    "electron:pack": "electron-builder",
+    "electron:dist": "npm run build && electron-builder",
+    "copy-assets": "cp -r assets/* dist/ 2>/dev/null || true",
+    "clean": "rm -rf dist build"
+  },
+  "main": "dist/main.js",
+  "homepage": "./",
+  "dependencies": {
+    "electron-updater": "^5.3.0",
+    "electron-store": "^8.1.0",
+    "electron-log": "^4.4.8",
+    "node-fetch": "^3.3.1",
+    "ws": "^8.13.0"
+  },
+  "devDependencies": {
+    "@types/node": "^20.10.0",
+    "concurrently": "^8.2.0",
+    "electron": "^25.2.0",
+    "electron-builder": "^24.4.0",
+    "typescript": "^5.3.0",
+    "wait-on": "^7.0.1"
+  },
+  "build": {
+    "appId": "com.resto.pos",
+    "productName": "Restaurant POS",
+    "directories": {
+      "output": "build"
+    },
+    "files": [
+      "dist/**/*",
+      "node_modules/**/*"
+    ],
+    "mac": {
+      "category": "public.app-category.business",
+      "target": [
+        {
+          "target": "dmg",
+          "arch": ["x64", "arm64"]
+        }
+      ]
+    },
+    "win": {
+      "target": [
+        {
+          "target": "nsis",
+          "arch": ["x64", "ia32"]
+        }
+      ]
+    },
+    "linux": {
+      "target": [
+        {
+          "target": "AppImage",
+          "arch": ["x64"]
+        }
+      ]
+    },
+    "publish": {
+      "provider": "github",
+      "owner": "restaurant-pos",
+      "repo": "pos-releases"
+    }
+  }
+} 

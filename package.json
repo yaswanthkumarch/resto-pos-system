@@ -1,0 +1,42 @@
+{
+  "name": "restaurant-pos-system",
+  "version": "1.0.0",
+  "description": "Modern restaurant POS system with desktop and web support",
+  "private": true,
+  "workspaces": [
+    "backend",
+    "frontend",
+    "desktop",
+    "shared"
+  ],
+  "scripts": {
+    "install:all": "npm install && npm install --workspaces",
+    "dev:backend": "cd backend && npm run dev",
+    "dev:frontend": "cd frontend && npm start",
+    "dev:desktop": "cd desktop && npm run electron:dev",
+    "build:all": "npm run build:shared && npm run build:backend && npm run build:frontend && npm run build:desktop",
+    "build:backend": "cd backend && npm run build",
+    "build:frontend": "cd frontend && npm run build",
+    "build:desktop": "cd desktop && npm run build",
+    "build:shared": "cd shared && npm run build",
+    "start:backend": "cd backend && npm start",
+    "start:frontend": "cd frontend && npm start",
+    "start:desktop": "cd desktop && npm start",
+    "lint": "npm run lint --workspaces",
+    "test": "npm run test --workspaces",
+    "clean": "npm run clean --workspaces && rm -rf node_modules",
+    "db:setup": "cd backend && npm run db:setup",
+    "db:migrate": "cd backend && npm run db:migrate",
+    "db:seed": "cd backend && npm run db:seed"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  },
+  "author": "Restaurant POS Team",
+  "license": "MIT",
+  "devDependencies": {
+    "@types/node": "^20.10.0",
+    "concurrently": "^8.2.0",
+    "typescript": "^5.3.0"
+  }
+} 

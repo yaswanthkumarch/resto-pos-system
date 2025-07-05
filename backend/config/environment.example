@@ -1,0 +1,49 @@
+# Server Configuration
+NODE_ENV=development
+PORT=3001
+HOST=localhost
+
+# Database Configuration
+DATABASE_URL=postgresql://postgres:password@localhost:5432/resto_pos
+DB_HOST=localhost
+DB_PORT=5432
+DB_NAME=resto_pos
+DB_USER=postgres
+DB_PASSWORD=password
+
+# JWT Configuration
+JWT_SECRET=your-super-secret-jwt-key-here
+JWT_EXPIRES_IN=24h
+
+# Redis Configuration (Optional)
+REDIS_URL=redis://localhost:6379
+REDIS_HOST=localhost
+REDIS_PORT=6379
+
+# CORS Configuration
+CORS_ORIGIN=http://localhost:3000
+
+# File Upload Configuration
+UPLOAD_PATH=uploads/
+MAX_FILE_SIZE=5MB
+
+# Rate Limiting
+RATE_LIMIT_WINDOW=15
+RATE_LIMIT_MAX_REQUESTS=100
+
+# Logging
+LOG_LEVEL=info
+LOG_FILE=logs/app.log
+
+# Sync Configuration
+SYNC_INTERVAL=15000
+OFFLINE_QUEUE_SIZE=1000
+
+# Store Configuration
+STORE_NAME=My Restaurant
+STORE_ADDRESS=123 Main St, City, State 12345
+STORE_PHONE=+1234567890
+STORE_EMAIL=contact@myrestaurant.com
+DEFAULT_CURRENCY=USD
+DEFAULT_TAX_RATE=0.08
+DEFAULT_TIMEZONE=America/New_York 
